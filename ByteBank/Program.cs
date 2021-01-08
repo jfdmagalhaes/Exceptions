@@ -18,9 +18,9 @@ namespace ByteBank
             {
                 Metodo();
             }
-            catch (Exception erro)
+            catch (Exception e)
             {
-                Console.WriteLine(erro.Message);
+                Console.WriteLine(e.Message);
                 Console.WriteLine("Exceção tratada.");
             }
 
