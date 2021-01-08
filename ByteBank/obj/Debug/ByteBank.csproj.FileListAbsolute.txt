@@ -1,0 +1,7 @@
+C:\Estudo\Exceptions\ByteBank\bin\Debug\ByteBank.exe.config
+C:\Estudo\Exceptions\ByteBank\bin\Debug\ByteBank.exe
+C:\Estudo\Exceptions\ByteBank\bin\Debug\ByteBank.pdb
+C:\Estudo\Exceptions\ByteBank\obj\Debug\ByteBank.csprojAssemblyReference.cache
+C:\Estudo\Exceptions\ByteBank\obj\Debug\ByteBank.csproj.CoreCompileInputs.cache
+C:\Estudo\Exceptions\ByteBank\obj\Debug\ByteBank.exe
+C:\Estudo\Exceptions\ByteBank\obj\Debug\ByteBank.pdb
