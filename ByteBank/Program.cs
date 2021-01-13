@@ -15,7 +15,12 @@ namespace ByteBank
                 ContaCorrente conta = new ContaCorrente(121, 12121);
                 conta.Depositar(50);
                 Console.WriteLine(conta.Saldo);
-                conta.Sacar(500);
+                conta.Sacar(10);
+
+
+                ContaCorrente conta2 = new ContaCorrente(121, 12121);
+                conta2.Transferir(-10, conta);
+
             }
             catch (DivideByZeroException e)
             {
