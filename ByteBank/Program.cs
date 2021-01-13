@@ -10,38 +10,60 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-
-            //ContaCorrente cota = new ContaCorrente(1212, 121212);
-            //Console.WriteLine(ContaCorrente.TaxaOperacao);
-
             try
             {
-                Metodo();
+                ContaCorrente conta = new ContaCorrente(121, 12121);
+                conta.Depositar(50);
+                Console.WriteLine(conta.Saldo);
+                conta.Sacar(500);
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine("Não é possível divisão por zero.");
+            }
+
+            catch (SaldoInsuficienteException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                Console.WriteLine("Aconteceu um erro!");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine("Exceção tratada.");
+                Console.WriteLine(e.StackTrace);
+                Console.WriteLine("Aconteceu um erro!");
             }
+           
 
             Console.ReadLine();
         }
 
-        public static int Dividir(int numero, int divisor)
-        {
-            return numero / divisor;
-        }
-
-        static void Metodo()
+        // Teste com a cadeia de chamada:
+        // Metodo -> TestaDivisao -> Dividir
+        private static void Metodo()
         {
             TestaDivisao(0);
         }
 
-        static void TestaDivisao(int divisor)
+        private static void TestaDivisao(int divisor)
         {
-            Dividir(10, divisor);
+            int resultado = Dividir(10, divisor);
+            Console.WriteLine("Resultado da divisão de 10 por " + divisor + " é " + resultado);
         }
 
-
+        private static int Dividir(int numero, int divisor)
+        {
+            try
+            {
+                return numero / divisor;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("Exceção com numero=" + numero + " e divisor=" + divisor);
+                throw;
+                
+            }
+        }
     }
 }
