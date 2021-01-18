@@ -13,32 +13,41 @@ namespace ByteBank
             try
             {
                 ContaCorrente conta = new ContaCorrente(121, 12121);
-                conta.Depositar(50);
-                Console.WriteLine(conta.Saldo);
-                conta.Sacar(10);
-
-
                 ContaCorrente conta2 = new ContaCorrente(121, 12121);
-                conta2.Transferir(-10, conta);
 
-            }
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine("Não é possível divisão por zero.");
-            }
+                conta.Transferir(100000, conta2);
 
-            catch (SaldoInsuficienteException ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-                Console.WriteLine("Aconteceu um erro!");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
-                Console.WriteLine("Aconteceu um erro!");
+
+                Console.WriteLine("INFORMAÇÕES INNER EXCEPTION");
+
+                Console.WriteLine(e.InnerException.Message);
+                Console.WriteLine(e.InnerException.StackTrace);
+
             }
+
+            //catch (DivideByZeroException e)
+            //{
+            //    Console.WriteLine("Não é possível divisão por zero.");
+            //}
+
+            //catch (SaldoInsuficienteException ex)
+            //{
+            //    Console.WriteLine(ex.Saldo);
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine(ex.StackTrace);
+            //    Console.WriteLine("Aconteceu um erro!");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //    Console.WriteLine(e.StackTrace);
+            //    Console.WriteLine("Aconteceu um erro!");
+            //}
            
 
             Console.ReadLine();
