@@ -18,7 +18,7 @@ namespace ByteBank
                 conta.Transferir(100000, conta2);
 
             }
-            catch (Exception e)
+            catch (OperacaoFinanceiraException e)
             {
                 Console.WriteLine(e.Message);
                 Console.WriteLine(e.StackTrace);
