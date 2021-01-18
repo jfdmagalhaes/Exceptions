@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,49 @@ namespace ByteBank
     class Program
     {
         static void Main(string[] args)
+        {
+            CarregarContas();
+            Console.ReadLine();
+        }
+
+        // Teste com a cadeia de chamada:
+        // Metodo -> TestaDivisao -> Dividir
+        private static void Metodo()
+        {
+            TestaDivisao(0);
+        }
+
+        private static void CarregarContas()
+        {
+
+            using (LeitorDeArquivo leitor = new LeitorDeArquivo("teste.txt"))
+            {
+                leitor.LerProximaLinha();
+            }
+
+            //LeitorDeArquivo leitor = null;
+
+            //try
+            //{
+            //    leitor = new LeitorDeArquivo("contas.txt");
+            //    leitor.LerProximaLinha();
+            //}
+            //catch (IOException)
+            //{
+            //    Console.WriteLine("Exceção do tipo IO!!");
+
+            //}
+            //finally
+            //{
+            //    if (leitor != null)
+            //    {
+            //        leitor.Fechar();
+            //    }
+            //}
+        }
+
+
+        private static void TestaInnerException()
         {
             try
             {
@@ -29,36 +73,8 @@ namespace ByteBank
                 Console.WriteLine(e.InnerException.StackTrace);
 
             }
-
-            //catch (DivideByZeroException e)
-            //{
-            //    Console.WriteLine("Não é possível divisão por zero.");
-            //}
-
-            //catch (SaldoInsuficienteException ex)
-            //{
-            //    Console.WriteLine(ex.Saldo);
-            //    Console.WriteLine(ex.Message);
-            //    Console.WriteLine(ex.StackTrace);
-            //    Console.WriteLine("Aconteceu um erro!");
-            //}
-            //catch (Exception e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //    Console.WriteLine(e.StackTrace);
-            //    Console.WriteLine("Aconteceu um erro!");
-            //}
-           
-
-            Console.ReadLine();
         }
 
-        // Teste com a cadeia de chamada:
-        // Metodo -> TestaDivisao -> Dividir
-        private static void Metodo()
-        {
-            TestaDivisao(0);
-        }
 
         private static void TestaDivisao(int divisor)
         {
